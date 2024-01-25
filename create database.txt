@@ -1,0 +1,24 @@
+using HowToAddADatabase.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+ 
+namespace HowToAddADatabase
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var builder = WebApplication.CreateBuilder(args);
+ 
+            builder.Services.AddRazorPages();
+ 
+            (import the Microsoft.EntityFrameworkCore namespace!)
+            builder.Services.AddDbContext<SchoolContext>(options =>
+                options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=SchoolDB;Trusted_Connection=True;"));
+ 
+            var app = builder.Build();
+ 
+            
+        }
+    }
+}
